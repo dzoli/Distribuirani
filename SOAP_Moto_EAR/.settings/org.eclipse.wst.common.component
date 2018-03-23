@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="SOAP_Moto_EAR">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="SOAP_Moto_Service.war" deploy-path="/" handle="module:/resource/SOAP_Moto_Service/SOAP_Moto_Service">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Moto_JPA.jar" deploy-path="/lib" handle="module:/resource/Moto_JPA/Moto_JPA">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SOAP_Moto_WebClient.war" deploy-path="/" handle="module:/resource/SOAP_Moto_WebClient/SOAP_Moto_WebClient">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

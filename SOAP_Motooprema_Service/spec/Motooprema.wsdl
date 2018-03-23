@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/Motooprema/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Motooprema" targetNamespace="http://www.example.org/Motooprema/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/Motooprema/">
+      <xsd:element name="vratiSveKategorije">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="vratiSveKategorijeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="kategorijeRequest" type="tns:in"></xsd:element>
+      <xsd:element name="kategorijeResponse"
+      	type="tns:KategorijeType">
+      </xsd:element>
+      
+            <xsd:simpleType name="in">
+            	<xsd:restriction base="xsd:string"></xsd:restriction>
+            </xsd:simpleType>
+    
+            <xsd:complexType name="KategorijeType">
+            	<xsd:sequence>
+            		<xsd:element name="kategorije"
+            			type="tns:KategorijaType" maxOccurs="unbounded"
+            			minOccurs="0">
+            		</xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+    
+            <xsd:complexType name="KategorijaType">
+            	<xsd:sequence>
+            		<xsd:element name="naziv" type="xsd:string"></xsd:element>
+            		<xsd:element name="idkategorije" type="xsd:string"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="in" type="xsd:string"></xsd:element>
+            <xsd:element name="vratiOpremuIzKategorijeResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="opremaRequest" type="tns:idKat"></xsd:element>
+            <xsd:element name="opremaResponse" type="tns:OpremeType"></xsd:element>
+            
+            <xsd:simpleType name="idKat">
+            	<xsd:restriction base="xsd:string"></xsd:restriction>
+            </xsd:simpleType>
+    
+            <xsd:complexType name="OpremeType">
+            	<xsd:sequence>
+            		<xsd:element name="opreme" type="tns:OpremaType"
+            			maxOccurs="unbounded" minOccurs="0">
+            		</xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+    
+            <xsd:complexType name="OpremaType">
+            	<xsd:sequence>
+            		<xsd:element name="naziv" type="xsd:string"></xsd:element>
+            		<xsd:element name="stanje" type="xsd:string"></xsd:element>
+            		<xsd:element name="opis" type="xsd:string"></xsd:element>
+            		<xsd:element name="idkategorije"
+            			type="xsd:string">
+            		</xsd:element>
+            		<xsd:element name="idopreme" type="xsd:string"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="in1" type="xsd:string"></xsd:element>
+            <xsd:element name="kupiOpremuResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="kupiRequest" type="tns:idOpr"></xsd:element>
+            <xsd:element name="kupiResponse" type="tns:out"></xsd:element>
+            
+            <xsd:simpleType name="idOpr">
+            	<xsd:restriction base="xsd:string"></xsd:restriction>
+            </xsd:simpleType>
+    
+            <xsd:simpleType name="out">
+            	<xsd:restriction base="xsd:boolean"></xsd:restriction>
+            </xsd:simpleType>
+            <xsd:element name="in2" type="xsd:string"></xsd:element>
+            <xsd:element name="sacuvajOpremuResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="novaRequest" type="tns:OpremaType"></xsd:element>
+            <xsd:element name="novaResponse" type="tns:out"></xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="vratiSveKategorijeRequest">
+    <wsdl:part element="tns:kategorijeRequest" name="in"/>
+  </wsdl:message>
+  <wsdl:message name="vratiSveKategorijeResponse">
+    <wsdl:part element="tns:kategorijeResponse" name="out"/>
+  </wsdl:message>
+  <wsdl:message name="vratiOpremuIzKategorijeRequest">
+  	<wsdl:part name="in" element="tns:opremaRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="vratiOpremuIzKategorijeResponse">
+  	<wsdl:part name="out" element="tns:opremaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="kupiOpremuRequest">
+  	<wsdl:part name="in" element="tns:kupiRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="kupiOpremuResponse">
+  	<wsdl:part name="out" element="tns:kupiResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sacuvajOpremuRequest">
+  	<wsdl:part name="opremaType" element="tns:novaRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sacuvajOpremuResponse">
+  	<wsdl:part name="out" element="tns:novaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MotoopremaPortType">
+    <wsdl:operation name="vratiSveKategorije">
+      <wsdl:input message="tns:vratiSveKategorijeRequest"/>
+      <wsdl:output message="tns:vratiSveKategorijeResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="vratiOpremuIzKategorije">
+    	<wsdl:input message="tns:vratiOpremuIzKategorijeRequest"></wsdl:input>
+    	<wsdl:output message="tns:vratiOpremuIzKategorijeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kupiOpremu">
+    	<wsdl:input message="tns:kupiOpremuRequest"></wsdl:input>
+    	<wsdl:output message="tns:kupiOpremuResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sacuvajOpremu">
+    	<wsdl:input message="tns:sacuvajOpremuRequest"></wsdl:input>
+    	<wsdl:output message="tns:sacuvajOpremuResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MotoopremaSOAP" type="tns:MotoopremaPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="vratiSveKategorije">
+      <soap:operation soapAction="http://www.example.org/Motooprema/vratiSveKategorije"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Motooprema">
+    <wsdl:port binding="tns:MotoopremaSOAP" name="MotoopremaPort">
+      <soap:address location="http://localhost:8080/SOAP_Motooprema_Service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

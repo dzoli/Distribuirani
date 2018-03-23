@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_111">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/WildFly 10.x Runtime">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/SOAP_Moto_Service/jbossxts-5.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Novica/Desktop/school/Semestri/VIII - Semestar/Distribuirani sistemi/Vezbe-DS/wildfly-10.1.0.Final/modules/system/layers/base/org/apache/ws/security/main/wss4j-ws-security-dom-2.1.5.jar" sourcepath="C:/Users/Novica/.m2/repository/org/apache/wss4j/wss4j-ws-security-common/2.1.5/wss4j-ws-security-common-2.1.5-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Novica/Desktop/school/Semestri/VIII - Semestar/Distribuirani sistemi/Vezbe-DS/wildfly-10.1.0.Final/modules/system/layers/base/org/apache/ws/security/main/wss4j-ws-security-common-2.1.5.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Moto_JPA"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MotoOprema_JPA"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

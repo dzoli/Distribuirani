@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: 
+Dependencies: org.apache.ws.security, org.apache.neethi, org.apache.ws.xmlschema, org.apache.santuario.xmlsec, org.slf4j, org.codehaus.woodstox,  org.apache.cxf.impl, org.apache.cxf, org.jboss.xts, org.jboss.modules, org.jboss.msc, org.jboss.jts

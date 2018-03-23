@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/motoSpec/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="motoSpec" targetNamespace="http://www.example.org/motoSpec/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/motoSpec/">
+      <xsd:element name="napraviNalog">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="napraviNalogResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="nalogRequest" type="tns:VlasnikType"></xsd:element>
+      <xsd:element name="nalogResponse" type="tns:out"></xsd:element>
+
+      <xsd:complexType name="VlasnikType">
+      	<xsd:sequence>
+      		<xsd:element name="idvlasnika" type="xsd:string"></xsd:element>
+      		<xsd:element name="ime" type="xsd:string"></xsd:element>
+      		<xsd:element name="prezime" type="xsd:string"></xsd:element>
+      		<xsd:element name="adresa" type="xsd:string"></xsd:element>
+      		<xsd:element name="telefon" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:simpleType name="out">
+      	<xsd:restriction base="xsd:boolean"></xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="vratiVlasnike">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+            <xsd:element name="out" type="xsd:string"></xsd:element>
+            <xsd:element name="vlasnikRequest" type="tns:in"></xsd:element>
+            <xsd:element name="vlasnikResponse"
+            	type="tns:VlasniciType">
+            </xsd:element>
+            
+            <xsd:simpleType name="in">
+            	<xsd:restriction base="xsd:string"></xsd:restriction>
+            </xsd:simpleType>
+    
+            <xsd:complexType name="VlasniciType">
+            	<xsd:sequence>
+            		<xsd:element name="vlasnici"
+            			type="tns:VlasnikType" maxOccurs="unbounded" minOccurs="0">
+            		</xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="sacuvajMotor">
+            	<xsd:complexType>
+            		<xsd:sequence>
+
+            			<xsd:element name="in" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="out1" type="xsd:string"></xsd:element>
+            <xsd:element name="motorRequest" type="tns:MotorType"></xsd:element>
+            <xsd:element name="motorResponse" type="tns:out"></xsd:element>
+            
+            <xsd:complexType name="MotorType">
+            	<xsd:sequence>
+            		<xsd:element name="idvlasnika" type="xsd:string"></xsd:element>
+            		<xsd:element name="godiste" type="xsd:string"></xsd:element>
+            		<xsd:element name="cena" type="xsd:string"></xsd:element>
+            		<xsd:element name="stanje" type="xsd:string"></xsd:element>
+            		<xsd:element name="marka" type="xsd:string"></xsd:element>
+            		<xsd:element name="model" type="xsd:string"></xsd:element>
+            		<xsd:element name="idmotora" type="xsd:string"></xsd:element>
+            		<xsd:element name="idkategorije" type="xsd:string"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="prikaziSlobodneMotore">
+            	<xsd:complexType>
+            		<xsd:sequence>
+
+            			<xsd:element name="in" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="out2" type="xsd:string"></xsd:element>
+            <xsd:element name="slobodniMotoriRequest" type="tns:in"></xsd:element>
+            <xsd:element name="slobodniMotoriResponse"
+            	type="tns:MotoriType">
+            </xsd:element>
+            
+            <xsd:complexType name="MotoriType">
+            	<xsd:sequence>
+            		<xsd:element name="motori" type="tns:MotorType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="kupiMotor">
+            	<xsd:complexType>
+            		<xsd:sequence>
+
+            			<xsd:element name="in" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="out3" type="xsd:string"></xsd:element>
+            <xsd:element name="kupiRequest" type="tns:in"></xsd:element>
+            <xsd:element name="kupiResponse" type="tns:out"></xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="napraviNalogRequest">
+    <wsdl:part element="tns:nalogRequest" name="in"/>
+  </wsdl:message>
+  <wsdl:message name="napraviNalogResponse">
+    <wsdl:part element="tns:nalogResponse" name="out"/>
+  </wsdl:message>
+  <wsdl:message name="vratiVlasnikeRequest">
+  	<wsdl:part name="in" element="tns:vlasnikRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="vratiVlasnikeResponse">
+  	<wsdl:part name="out" element="tns:vlasnikResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sacuvajMotorRequest">
+  	<wsdl:part name="in" element="tns:motorRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sacuvajMotorResponse">
+  	<wsdl:part name="out" element="tns:motorResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="prikaziSlobodneMotoreRequest">
+  	<wsdl:part name="in" element="tns:slobodniMotoriRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="prikaziSlobodneMotoreResponse">
+  	<wsdl:part name="out" element="tns:slobodniMotoriResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="kupiMotorRequest">
+  	<wsdl:part name="in" element="tns:kupiRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="kupiMotorResponse">
+  	<wsdl:part name="out" element="tns:kupiResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MotoPortType">
+    <wsdl:operation name="napraviNalog">
+      <wsdl:input message="tns:napraviNalogRequest"/>
+      <wsdl:output message="tns:napraviNalogResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="vratiVlasnike">
+    	<wsdl:input message="tns:vratiVlasnikeRequest"></wsdl:input>
+    	<wsdl:output message="tns:vratiVlasnikeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sacuvajMotor">
+    	<wsdl:input message="tns:sacuvajMotorRequest"></wsdl:input>
+    	<wsdl:output message="tns:sacuvajMotorResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="prikaziSlobodneMotore">
+    	<wsdl:input message="tns:prikaziSlobodneMotoreRequest"></wsdl:input>
+    	<wsdl:output message="tns:prikaziSlobodneMotoreResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kupiMotor">
+    	<wsdl:input message="tns:kupiMotorRequest"></wsdl:input>
+    	<wsdl:output message="tns:kupiMotorResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="motoSpecSOAP" type="tns:MotoPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="napraviNalog">
+      <soap:operation soapAction="http://www.example.org/motoSpec/napraviNalog"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="motoSpec">
+    <wsdl:port binding="tns:motoSpecSOAP" name="motoSpecPort">
+      <soap:address location="http://localhost:8080/SOAP_Moto_Service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

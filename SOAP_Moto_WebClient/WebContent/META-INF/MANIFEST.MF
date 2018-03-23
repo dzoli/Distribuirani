@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: 
+Dependencies: org.apache.neethi, org.apache.ws.xmlschema, org.codehaus.woodstox, org.apache.ws.security, org.apache.santuario.xmlsec, org.slf4j

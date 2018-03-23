@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="REST_MotoProdavnica_EAR">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="MotoOprema_JPA.jar" deploy-path="/lib" handle="module:/resource/MotoOprema_JPA/MotoOprema_JPA">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="REST_MotoProdavnica_Service.war" deploy-path="/" handle="module:/resource/REST_MotoProdavnica_Service/REST_MotoProdavnica_Service">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Moto_JPA.jar" deploy-path="/lib" handle="module:/resource/Moto_JPA/Moto_JPA">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
